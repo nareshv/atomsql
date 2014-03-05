@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>AtomSQL - Tiny SQL for Programmers</title>
+
+    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/sunburst.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/docs.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/print.css" media="print">
+    
+
+    <script type="text/javascript" src="assets/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    <script type="text/javascript" src="assets/js/lunr.min.js"></script>
+
+    
+
+    <script type="text/javascript">var BASE_URL = "";</script>
+    <script type="text/javascript" src="assets/js/viewer.js"></script>
+
+    
+</head>
+<body>
+    <div id="page">
+        <a name="top" />
+        <header id="header">
+            <h1><a href="">AtomSQL - Tiny SQL for Programmers</a></h1>
+        </header>
+        
+
+<div id="sidebar">
+    <form action="search.html"><input id="search" type="text" placeholder="Search" name="q" /></form>
+    <nav id="toc">
+        
+    <ol>
+    
+        <li>
+            <a href="index.html#atom-sql">Atom SQL</a>
+            
+                
+    <ol>
+    
+</ol>
+
+            
+        </li>
+    
+        <li>
+            <a href="index.html#pre-requisites">Pre-requisites</a>
+            
+                
+    <ol>
+    
+</ol>
+
+            
+        </li>
+    
+        <li>
+            <a href="index.html#atomsql-grammar">AtomSQL Grammar</a>
+            
+                
+    <ol>
+    
+</ol>
+
+            
+        </li>
+    
+        <li>
+            <a href="index.html#remembering-the-syntax">Remembering the Syntax</a>
+            
+                
+    <ol>
+    
+</ol>
+
+            
+        </li>
+    
+        <li>
+            <a href="index.html#explanation-with-examples">Explanation with examples</a>
+            
+                
+    <ol>
+    
+        <li>
+            <a href="index.html#connect-to-server-and-choose-a-database">Connect to server and choose a database</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#view-the-list-of-all-tables">View the list of all tables</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#create-a-new-table">Create a new table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#describe-the-table">Describe the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#list-the-contents-of-the-table">List the contents of the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#insert-few-records-into-the-table">Insert few records into the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#insert-records-in-bulk">Insert records in bulk</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#count-the-records-from-the-table">Count the records from the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#display-the-records-from-the-table">Display the records from the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#display-the-records-from-the-table-with-limit">Display the records from the table with LIMIT</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#display-the-records-from-the-table-with-limit-offset">Display the records from the table with LIMIT, OFFSET</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#display-the-records-from-the-table-with-where-clause">Display the records from the table with WHERE Clause</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#display-the-records-from-the-table-with-where-clause-column-aliasing">Display the records from the table with WHERE Clause &amp; Column Aliasing</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#copy-table-definition">Copy Table Definition</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#copy-table-data-into-another-table">Copy Table Data into another table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#add-new-column-to-the-table">Add New Column to the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#add-another-column-to-the-table">Add another column to the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#remove-column-from-the-table">Remove Column from the table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#update-table-contents">Update table contents</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#delete-records-from-table">Delete Records from Table</a>
+            
+        </li>
+    
+        <li>
+            <a href="index.html#drop-the-table">Drop the table</a>
+            
+        </li>
+    
+</ol>
+
+            
+        </li>
+    
+</ol>
+
+    </nav>
+    
+    <nav id="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    
+</div>
+
+        <div id="content">
+            <h2>Search results for "<span id="search-q"></span>"</h2>
+<ul id="search-results"></ul>
+<script type="text/javascript" src="lunr-index.js"></script>
+<script type="text/javascript">
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    $(function() {
+        var q = getParameterByName('q'), 
+            ul = $('#search-results').empty(),
+            results = index.search(q);
+
+        $('#search-q').text(q);
+        if (results.length > 0) {
+            for (var i = 0; i < results.length; i++) {
+                ul.append($('<li><a href="' + results[i].ref + '">' + documentTitles[results[i].ref] + '</a></li>'));
+            }
+        } else {
+            ul.append($('<li class="no-results">No results found</li>'));
+        }
+    })
+</script>
+
+        </div>
+        <footer id="footer">
+            Powered by <a href="http://github.com/maximebf/beautiful-docs">beautiful-docs</a> -
+            <a href="#top">Back to top</a> - <a href="all.html">Everything on a single page</a>
+            - <a href="?print=1">Print current page</a> - <a href="all.html?print=1">Print all pages</a>
+            
+        </footer>
+    </div>
+</body>
+</html>
