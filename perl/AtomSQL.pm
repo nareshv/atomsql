@@ -59,6 +59,7 @@ sub atomsql_query($$) {
     my $driver = shift;
     my $qend   = "";
     my $sql    = $p;
+    $p =~ s/;$//;
     if ($p =~ $regex) {
         $qend = $+{qend};
         if (defined $+{general}) {
@@ -103,7 +104,7 @@ sub atomsql_query($$) {
             $sql = "INSERT INTO ".$+{itable}."$col VALUES $val";
         } elsif (defined $+{tablea}) {
             if ($+{tableaboper} eq '=') {
-                $sql = "CREATE TABLE ".$+{tablea}." LIKE ".$+{tableb};
+                $sql = "CREATE TABLE ".$+{tableb}." LIKE ".$+{tablea};
             } elsif ($+{tableaboper} eq '>' or $+{tableaboper} eq '>>') {
                 $acols = "";
                 if (length $+{tableacol} > 0) {
