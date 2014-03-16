@@ -28,7 +28,6 @@
       <div class="row">
           <div class="col-md-2 affix">
             <h1>AtomSQL</h1>
-            <p>Lightweight SQL for Modern Age.</p>
       <ul class="nav">
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#supported-features">Supported Features</a></li>
@@ -45,30 +44,33 @@
       <li><a href="#tablebackup">Table/Backup</a></li>
       <li><a href="#tablerestore">Table/Restore</a></li>
       </ul></li>
+      <li><a href="#languages-perl">LANGUAGES / PERL</a></li>
+      <li><a href="#languages-php">LANGUAGES / PHP</a></li>
+      <li><a href="#version">Version</a></li>
       <li><a href="#author">Author</a></li>
       <li><a href="#license">License</a></li>
       <li><a href="#contributing">Contributing</a></li>
       </ul>
           </div>
           <div class="col-md-10 col-md-offset-2">
-      <h1 id="introduction"><a href="#TOC">Introduction</a></h1>
+      <h1 id="introduction">Introduction</h1>
       <p><code>AtomSQL</code> is Simple Database Query Language for SQL Like systems.</p>
-      <h1 id="supported-features"><a href="#TOC">Supported Features</a></h1>
+      <h1 id="supported-features">Supported Features</h1>
       <ul class="nav">
       <li><p>ALL CRUD Operations are supported</p></li>
       <li><p>Few Table metadata operations are supported</p></li>
       <li><p>MySQL, Sqlite✳, Postgresql✳ are supported</p></li>
       <li><p>Perl, PHP✳, Nodejs✳ are supported</p></li>
       </ul>
-      <h1 id="why"><a href="#TOC">Why ?</a></h1>
+      <h1 id="why">Why ?</h1>
       <p>Current SQL is way too much to type for a UNIX/Linux user. So, came up with this simpler syntax to do most of the common tasks.</p>
-      <h1 id="sql-replacement"><a href="#TOC">SQL Replacement ?</a></h1>
+      <h1 id="sql-replacement">SQL Replacement ?</h1>
       <p>SQL itself is very complex and <code>AtomSQL</code> is not meant to be a replacement for it. Many Projects like <code>Oracle</code>, <code>Postgresql</code>, <code>MySQL</code> have invested lot of hours building a flexible SQL as per standards. Replacing all that effort in couple of weeks is not the idea.</p>
-      <h1 id="tdlr"><a href="#TOC">TD;LR</a></h1>
+      <h1 id="tdlr">TD;LR</h1>
       <p><code>AtomSQL</code> libraries provide mechanism to convert <code>AtomSQL</code> queries to normal <code>SQL</code> queries.</p>
-      <h1 id="atomsql-syntax"><a href="#TOC">AtomSQL Syntax</a></h1>
+      <h1 id="atomsql-syntax">AtomSQL Syntax</h1>
       <p>Below sections explain the syntax with few examples.</p>
-      <h2 id="tablemetadata"><a href="#TOC">Table/Metadata</a></h2>
+      <h2 id="tablemetadata">Table/Metadata</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
       <li><code>=</code> is an operator</li>
@@ -76,7 +78,7 @@
       <li><code>-</code> is DROP operator</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 33%" /><col style="width: 48%" /><thead>
+      <col style="width: 40%" /><col style="width: 59%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -84,30 +86,34 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable</code></td>
-      <td style="text-align: left;"><code>DESCRIBE hellotable</code></td>
+      <td style="text-align: left;"><p><code>*</code></p></td>
+      <td style="text-align: left;"><p><code>SHOW TABLES</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>= hellotable</code></td>
-      <td style="text-align: left;"><code>SHOW CREATE TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>DESCRIBE hellotable</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable +abc int</code></td>
-      <td style="text-align: left;"><code>ALTER TABLE ADD COLUMN abc int</code></td>
+      <td style="text-align: left;"><p><code>= hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>SHOW CREATE TABLE hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable -abc</code></td>
-      <td style="text-align: left;"><code>ALTER TABLE DROP COLUMN abc</code></td>
+      <td style="text-align: left;"><p><code>hellotable +tmp_col blob default null</code></p></td>
+      <td style="text-align: left;"><p><code>ALTER TABLE hellotable ADD COLUMN tmp_col blob default null</code></p></td>
+      </tr>
+      <tr class="odd">
+      <td style="text-align: left;"><p><code>hellotable -tmp_col</code></p></td>
+      <td style="text-align: left;"><p><code>ALTER TABLE hellotable DROP COLUMN tmp_col</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tablecreate"><a href="#TOC">Table/Create</a></h2>
+      <h2 id="tablecreate">Table/Create</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
       <li><code>{}</code> are borrowed from <code>C/C++</code> Structure Definition. So, you can remember that way.</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 45%" /><col style="width: 54%" /><thead>
+      <col style="width: 46%" /><col style="width: 53%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -115,24 +121,24 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable { a int, b char }</code></td>
-      <td style="text-align: left;"><code>CREATE TABLE hellotable ( a int, b char )</code></td>
+      <td style="text-align: left;"><p><code>hellotable { a int primary key auto_increment, b int, c varchar(255) DEFAULT NULL }</code></p></td>
+      <td style="text-align: left;"><p><code>CREATE TABLE hellotable ( a int primary key auto_increment, b int, c varchar(255) DEFAULT NULL )</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable { a int, b char } engine=innodb charset=utf8</code></td>
-      <td style="text-align: left;"><code>CREATE TABLE hellotable ( a int, b char ) engine=innodb charset=utf8</code></td>
+      <td style="text-align: left;"><p><code>hellotable_innodb {  a int primary key auto_increment,  b int,  c varchar(255) DEFAULT NULL }  engine=innodb charset=utf8mb4</code></p></td>
+      <td style="text-align: left;"><p><code>CREATE TABLE hellotable_innodb (  a int primary key auto_increment,  b int,  c varchar(255) DEFAULT NULL ) engine=innodb charset=utf8mb4</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tableselect"><a href="#TOC">Table/Select</a></h2>
+      <h2 id="tableselect">Table/Select</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
-      <li><code>&lt;&gt;</code> describe the column selection group</li>
-      <li><code>()</code> describe the WHERE clause</li>
-      <li><code>[]</code> describe the row selection with array slicing. LIMIT and OFFSET</li>
+      <li><code>&lt;&gt;</code> - COLUMN selection expression</li>
+      <li><code>()</code> - WHERE expression</li>
+      <li><code>[]</code> - LIMIT, OFFSET expression</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 37%" /><col style="width: 62%" /><thead>
+      <col style="width: 38%" /><col style="width: 61%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -140,32 +146,32 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt;</code></td>
-      <td style="text-align: left;"><code>SELECT a,b FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt;</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b FROM hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; (a &gt; b)</code></td>
-      <td style="text-align: left;"><code>SELECT a,b FROM hellotable WHERE (a &gt; b)</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a &gt; b)</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b FROM hellotable WHERE (a &gt; b)</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; (a &gt; b) [100]</code></td>
-      <td style="text-align: left;"><code>SELECT a,b FROM hellotable WHERE (a &gt; b) LIMIT 100</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a &gt; b) [100]</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b FROM hellotable WHERE (a &gt; b) LIMIT 100</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; (a &gt; b) [100, 200]</code></td>
-      <td style="text-align: left;"><code>SELECT a,b FROM hellotable WHERE (a &gt; b) LIMIT 100 OFFSET 200</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a &gt; b) [100, 200]</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b FROM hellotable WHERE (a &gt; b) LIMIT 100 OFFSET 200</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tableupdate"><a href="#TOC">Table/Update</a></h2>
+      <h2 id="tableupdate">Table/Update</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
       <li><code>//</code> is like regular-expressions for substitution. Read <code>perl</code>, <code>awk</code> for some intro</li>
-      <li><code>()</code> describe the WHERE clause</li>
-      <li><code>[]</code> is again array slicing. Used for LIMIT</li>
+      <li><code>()</code> - WHERE expression</li>
+      <li><code>[]</code> - LIMIT, OFFSET expression</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 40%" /><col style="width: 59%" /><thead>
+      <col style="width: 41%" /><col style="width: 58%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -173,35 +179,35 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable /a = 1, b = 2/</code></td>
-      <td style="text-align: left;"><code>UPDATE hellotable SET a = 1, b = 2</code></td>
+      <td style="text-align: left;"><p><code>hellotable /a = 1, b = 2/</code></p></td>
+      <td style="text-align: left;"><p><code>UPDATE hellotable SET a = 1, b = 2</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable /a = 1, b = 2/ [50]</code></td>
-      <td style="text-align: left;"><code>UPDATE hellotable SET a = 1, b = 2 LIMIT 50</code></td>
+      <td style="text-align: left;"><p><code>hellotable /a = 1, b = 2/ [50]</code></p></td>
+      <td style="text-align: left;"><p><code>UPDATE hellotable SET a = 1, b = 2 LIMIT 50</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable /a = 1, b = 2/ (a &gt; 1)</code></td>
-      <td style="text-align: left;"><code>UPDATE hellotable SET a = 1, b = 2 WHERE (a &gt; 1)</code></td>
+      <td style="text-align: left;"><p><code>hellotable /a = 1, b = 2/ (a &gt; 1)</code></p></td>
+      <td style="text-align: left;"><p><code>UPDATE hellotable SET a = 1, b = 2 WHERE (a &gt; 1)</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable /a = 1, b = 2/ (a &gt; 1) [25]</code></td>
-      <td style="text-align: left;"><code>UPDATE hellotable SET a = 1, b = 2 WHERE (a &gt; 1) LIMIT 25</code></td>
+      <td style="text-align: left;"><p><code>hellotable /a = 1, b = 2/ (a &gt; 1) [25]</code></p></td>
+      <td style="text-align: left;"><p><code>UPDATE hellotable SET a = 1, b = 2 WHERE (a &gt; 1) LIMIT 25</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tableinsert"><a href="#TOC">Table/Insert</a></h2>
+      <h2 id="tableinsert">Table/Insert</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
-      <li><code>=</code> Assignment operator. COPY TABLE STRUCTURE</li>
-      <li><code>&lt;</code> UNIX Redirection operator. Used to copy data from RH to LH</li>
-      <li><code>&lt;&gt;</code> Column Grouping operator</li>
-      <li><code>()</code> WHERE clause</li>
-      <li><code>= ()</code> TUPLE representation</li>
-      <li><code>= [(), ()]</code> ARRAY of TUPLE representation</li>
+      <li><code>=</code> - Copy Table Structure</li>
+      <li><code>&gt;</code> - UNIX Redirection operator. Rows are REPLACEd</li>
+      <li><code>&gt;&gt;</code> - UNIX Append operator. Rows are INSERTEd</li>
+      <li><code>()</code> - WHERE expression</li>
+      <li><code>()</code> - TUPLE representation</li>
+      <li><code>[()]</code>- ARRAY of TUPLE representation</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 40%" /><col style="width: 59%" /><thead>
+      <col style="width: 44%" /><col style="width: 55%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -209,65 +215,65 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>new_hellotable = hellotable</code></td>
-      <td style="text-align: left;"><code>CREATE TABLE new_hellotable LIKE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable               =  hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>CREATE TABLE hellotable LIKE hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>new_hellotable &lt;*&gt; &lt; hellotable &lt;*&gt;</code></td>
-      <td style="text-align: left;"><code>REPLACE INTO new_hellotable (*) SELECT (*) FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable               &gt;  new_hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>REPLACE INTO new_hellotable SELECT * FROM hellotable</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>new_hellotable &lt;a,b&gt; &lt;  hellotable &lt;a,b&gt;</code></td>
-      <td style="text-align: left;"><code>REPLACE INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt;         &gt;  new_hellotable &lt;a,b&gt;</code></p></td>
+      <td style="text-align: left;"><p><code>REPLACE INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>new_hellotable &lt;a,b&gt; &lt;&lt; hellotable &lt;a,b&gt;</code></td>
-      <td style="text-align: left;"><code>INSERT INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt;         &gt;&gt; new_hellotable &lt;a,b&gt;</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>new_hellotable &lt;a,b&gt; &lt;  hellotable &lt;a,b&gt; (a &gt; 9)</code></td>
-      <td style="text-align: left;"><code>REPLACE INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable WHERE (a &gt; 9)</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a &gt; 9) &gt;  new_hellotable &lt;a,b&gt;</code></p></td>
+      <td style="text-align: left;"><p><code>REPLACE INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable WHERE (a &gt; 9)</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>new_hellotable &lt;a,b&gt; &lt;&lt; hellotable &lt;a,b&gt; (a &gt; 9)</code></td>
-      <td style="text-align: left;"><code>INSERT INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable WHERE (a &gt; 9)</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a &gt; 0) &gt;&gt; new_hellotable &lt;a,b&gt;</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO new_hellotable (a,b) SELECT (a,b) FROM hellotable WHERE (a &gt; 0)</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable = [ (1,'c') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable VALUES (1,'c')</code></td>
+      <td style="text-align: left;"><p><code>hellotable = [ (1, 1, 'a') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable VALUES (1, 1, 'a')</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable = [ (1, 'a'), (2, 'b') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable VALUES (1, 'a'), (2, 'b')</code></td>
+      <td style="text-align: left;"><p><code>hellotable = [ (2, 2, 'b'), (22, 22, 'b') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable VALUES (2, 2, 'b'), (22, 22, 'b')</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable = [ (1, 'a'), (2, 'b'), (3, 'c') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable VALUES (1, 'a'), (2, 'b'), (3, 'c')</code></td>
+      <td style="text-align: left;"><p><code>hellotable = [ (3, 3, 'c'), (33, 33, 'c'), (333, 333, 'c') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable VALUES (3, 3, 'c'), (33, 33, 'c'), (333, 333, 'c')</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; = [ (1,'c') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable (a,b) VALUES (1,'c')</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,c&gt; = [ (4, 'd') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable (a,c) VALUES (4, 'd')</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; = [ (1, 'a'), (2, 'b') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable (a,b) VALUES (1, 'a'), (2, 'b')</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,c&gt; = [ (5, 'e'), (55, 'e') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable (a,c) VALUES (5, 'e'), (55, 'e')</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; = [ (1, 'a'), (2, 'b'), (3, 'c') ]</code></td>
-      <td style="text-align: left;"><code>INSERT INTO hellotable (a,b) VALUES (1, 'a'), (2, 'b'), (3, 'c')</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,c&gt; = [ (6, 'f'), (66, 'f'), (66, 'c') ]</code></p></td>
+      <td style="text-align: left;"><p><code>INSERT INTO hellotable (a,c) VALUES (6, 'f'), (66, 'f'), (66, 'c')</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tabledelete"><a href="#TOC">Table/Delete</a></h2>
+      <h2 id="tabledelete">Table/Delete</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
-      <li><code>!</code> BANG operator</li>
-      <li><code>[]</code> Array Slicing operator. for LIMIT</li>
-      <li><code>()</code> WHERE clause</li>
-      <li><code>!!</code> DROP table operator</li>
+      <li><code>!</code> - Bang means, somethings is going away !</li>
+      <li><code>!!</code> - Double Bang, somethings are really going away.</li>
+      <li><code>[]</code> - LIMIT, OFFSET expression</li>
+      <li><code>()</code> - WHERE expression</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
-      <col style="width: 40%" /><col style="width: 59%" /><thead>
+      <col style="width: 41%" /><col style="width: 58%" /><thead>
       <tr class="header">
       <th style="text-align: left;">AtomSQL</th>
       <th style="text-align: left;">MySQL</th>
@@ -275,33 +281,34 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>! hellotable</code></td>
-      <td style="text-align: left;"><code>TRUNCATE TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>! hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>TRUNCATE TABLE hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>! hellotable [10]</code></td>
-      <td style="text-align: left;"><code>DELETE FROM hellotable LIMIT 10</code></td>
+      <td style="text-align: left;"><p><code>! hellotable [10]</code></p></td>
+      <td style="text-align: left;"><p><code>DELETE FROM hellotable LIMIT 10</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>! hellotable (a &gt; 100 and b != 'C')</code></td>
-      <td style="text-align: left;"><code>DELETE FROM hellotable WHERE (a &gt; 100 and b != 'C')</code></td>
+      <td style="text-align: left;"><p><code>! hellotable (a &gt; 100 and c != 'C')</code></p></td>
+      <td style="text-align: left;"><p><code>DELETE FROM hellotable WHERE (a &gt; 100 and c != 'C')</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>! hellotable (a &gt; 100 and b != 'C') [10]</code></td>
-      <td style="text-align: left;"><code>DELETE FROM hellotable WHERE (a &gt; 100 and b != 'C') LIMIT 10</code></td>
+      <td style="text-align: left;"><p><code>! hellotable (a &gt; 100 and c != 'C') [10]</code></p></td>
+      <td style="text-align: left;"><p><code>DELETE FROM hellotable WHERE (a &gt; 100 and c != 'C') LIMIT 10</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>!! hellotable</code></td>
-      <td style="text-align: left;"><code>DROP TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>!! hellotable</code></p></td>
+      <td style="text-align: left;"><p><code>DROP TABLE hellotable</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tablebackup"><a href="#TOC">Table/Backup</a></h2>
+      <h2 id="tablebackup">Table/Backup</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
-      <li><code>&lt;&gt;</code> Column selection operator</li>
-      <li><code>[]</code> Array slicing operator</li>
-      <li><code>&gt;</code> UNIX like redirection symbol</li>
+      <li><code>&lt;&gt;</code> - COLUMN selection expression</li>
+      <li><code>()</code> - WHERE expression. Ignored by MySQL</li>
+      <li><code>[]</code> - LIMIT, OFFSET expression</li>
+      <li><code>&gt;</code> - UNIX Redirection operator. Writes data to File.</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
       <col style="width: 47%" /><col style="width: 52%" /><thead>
@@ -312,32 +319,33 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;*&gt; &gt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>SELECT * INTO OUTFILE  FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;*&gt; &gt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT * INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; &gt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; &gt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; [10] &gt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; [10] &gt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; [10, 20] &gt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10 OFFSET 20</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; [10, 20] &gt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10 OFFSET 20</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;a,b&gt; (a = 100 and a != 20) [10, 20] &gt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10 OFFSET 20</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;a,b&gt; (a = 100 and a != 20) [10, 20] &gt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>SELECT a,b INTO OUTFILE '/tmp/backup-hellotable.csv' FROM hellotable LIMIT 10 OFFSET 20</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h2 id="tablerestore"><a href="#TOC">Table/Restore</a></h2>
+      <h2 id="tablerestore">Table/Restore</h2>
       <p><em>Few CLUES to Remember</em></p>
       <ul class="nav">
-      <li><code>&lt;</code> UNIX like redirection symbol</li>
-      <li><code>&lt;&lt;</code> Custom redirection symbol</li>
+      <li><code>&lt;</code> - UNIX like indirection symbol</li>
+      <li><code>&lt;&lt;</code> - Custom redirection symbol</li>
+      <li><code>&amp;</code> - Specifies to IGNORE inserts on errors</li>
       </ul>
       <table class="table-responsive table-hover table-striped table-bordered table-condensed">
       <col style="width: 34%" /><col style="width: 65%" /><thead>
@@ -348,30 +356,86 @@
       </thead>
       <tbody>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &lt;   '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE INTO TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;   '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE INTO TABLE hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &lt;&lt;  '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE INTO TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &lt;&lt;  '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' INTO TABLE hellotable</code></p></td>
       </tr>
       <tr class="odd">
-      <td style="text-align: left;"><code>hellotable &amp;&lt;  '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE IGNORE INTO TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &amp;&lt;  '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE IGNORE INTO TABLE hellotable</code></p></td>
       </tr>
       <tr class="even">
-      <td style="text-align: left;"><code>hellotable &amp;&lt;&lt; '/tmp/backup-hellotable.csv'</code></td>
-      <td style="text-align: left;"><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' REPLACE IGNORE INTO TABLE hellotable</code></td>
+      <td style="text-align: left;"><p><code>hellotable &amp;&lt;&lt; '/tmp/backup-hellotable.csv'</code></p></td>
+      <td style="text-align: left;"><p><code>LOAD DATA LOCAL INFILE '/tmp/backup-hellotable.csv' IGNORE INTO TABLE hellotable</code></p></td>
       </tr>
       </tbody>
       </table>
-      <h1 id="author"><a href="#TOC">Author</a></h1>
+      <h1 id="languages-perl">LANGUAGES / PERL</h1>
+      <ol type="1">
+      <li>Download</li>
+      </ol>
+      <pre><code>git clone https://github.com/nareshv/atomsql/</code></pre>
+      <ol start="2" type="1">
+      <li>Create a simple Perl Script</li>
+      </ol>
+      <pre class="sourceCode perl"><code class="sourceCode perl">
+      <span class="kw">#!/usr/bin/env perl</span>
+      
+      <span class="fu">use</span> AtomSQL;
+      <span class="fu">use</span> <span class="kw">strict</span>;
+      <span class="fu">use</span> <span class="kw">warnings</span>;
+      
+      <span class="co"># set the driver</span>
+      <span class="dt">$ENV</span>{ATOMSQL_DRIVER} = <span class="kw">&#39;</span><span class="st">mysql</span><span class="kw">&#39;</span>;
+      
+      <span class="co"># test the api</span>
+      <span class="kw">my</span> <span class="dt">$asql</span> = <span class="kw">&quot;</span><span class="st">DUAL &lt;now()&gt;</span><span class="kw">&quot;</span>;
+      <span class="kw">my</span> <span class="dt">$sql</span>  = atomsql_query(<span class="dt">$asql</span>);
+      
+      <span class="co"># print the results</span>
+      <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">ORIGINAL : </span><span class="dt">$asql</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+      <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">SQL      : </span><span class="dt">$sql</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
+      <p>Prints the following output</p>
+      <pre class="text"><code>
+      ORIGINAL : DUAL &lt;now()&gt;
+      SQL      : SELECT now() FROM DUAL</code></pre>
+      <h1 id="languages-php">LANGUAGES / PHP</h1>
+      <ol type="1">
+      <li>Download</li>
+      </ol>
+      <pre><code>git clone https://github.com/nareshv/atomsql/</code></pre>
+      <ol start="2" type="1">
+      <li>Create a simple PHP Script</li>
+      </ol>
+      <pre class="sourceCode php"><code class="sourceCode php">
+      <span class="kw">&lt;?php</span>
+      
+      <span class="co">// set the driver</span>
+      <span class="kw">$_ENV</span>{<span class="kw">ATOMSQL_DRIVER</span>} = <span class="st">&#39;mysql&#39;</span><span class="ot">;</span>
+      
+      <span class="co">// test the api</span>
+      my <span class="kw">$asql</span> = <span class="st">&quot;DUAL &lt;now()&gt;&quot;</span><span class="ot">;</span>
+      my <span class="kw">$sql</span>  = atomsql_query<span class="ot">(</span><span class="kw">$asql</span><span class="ot">);</span>
+      
+      <span class="co">// print the results</span>
+      <span class="fu">echo</span> <span class="st">&quot;ORIGINAL : </span><span class="kw">$asql\n</span><span class="st">&quot;</span><span class="ot">;</span>
+      <span class="fu">echo</span> <span class="st">&quot;SQL      : </span><span class="kw">$sql\n</span><span class="st">&quot;</span><span class="ot">;</span></code></pre>
+      <p>Prints the following output</p>
+      <pre class="text"><code>
+      ORIGINAL : DUAL &lt;now()&gt;
+      SQL      : SELECT now() FROM DUAL</code></pre>
+      <h1 id="version">Version</h1>
+      <p>0.1 - Initial version</p>
+      <h1 id="author">Author</h1>
       <p><a href="http://nareshv.blogspot.com/">nareshv@</a></p>
-      <h1 id="license"><a href="#TOC">License</a></h1>
+      <h1 id="license">License</h1>
       <p>MIT</p>
-      <h1 id="contributing"><a href="#TOC">Contributing</a></h1>
+      <h1 id="contributing">Contributing</h1>
       <p>Please submit a PR.</p>
-      <p><sub><sub><sub><sub><sub><sub><sub>~</sub></sub></sub></sub></sub></sub></sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub>~</sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub><sub><sub><sub>~</sub></sub></sub></p>
+      <p><sub><sub><sub><sub><sub><sub><sub>~</sub></sub></sub></sub></sub></sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub>~</sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub><sub><sub>~</sub></sub></sub></p>
           </div>
       </div>
     </div>
